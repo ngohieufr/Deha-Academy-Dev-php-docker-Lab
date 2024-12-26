@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"  # Ánh xạ cổng 80 trong container vào cổng 8080 trên máy chủ
+    volumes:
+      - .:/var/www/html  # Ánh xạ thư mục hiện tại vào thư mục /var/www/html trong container
+    container_name: php_app
+    restart: always
